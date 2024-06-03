@@ -10,7 +10,7 @@
 // +----------------------------------------------------------------------
 namespace Jenson\Upload\Service;
 
-//use app\service\ResourcesService;
+use ResourcesService;
 //use app\service\SystemBaseService;
 use Jenson\Upload\Helper\Helper;
 use Jenson\Upload\Uploader;
@@ -42,7 +42,7 @@ class UeditorService
     {
         // 配置信息
         self::$params = $params;
-        self::$current_config = parse_ini_file('../config/ueditor.ini', true);;//MyConfig('ueditor');
+        self::$current_config = parse_ini_file('../config/ueditor.ini', true);//MyConfig('ueditor');
         self::$current_action = isset($params['action']) ? $params['action'] : '';
         self::$path_type = isset($params['path_type']) ? $params['path_type'] : Helper::PathToParams('path_type', 'other');
 
