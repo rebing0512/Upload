@@ -272,7 +272,6 @@ class Helper
                     {
                         return str_replace('{$var}', 'unique验证', $v['error_msg']);
                     }
-//                    $temp = \think\facade\Db::name($v['checked_data'])->where([$v['key_name']=>$data[$v['key_name']]])->find();
                     $DB = new DB();
                     $database = $DB->database;
                     $temp = $database->get($v['checked_data'],'','',[$v['key_name']=>$data[$v['key_name']]]);
