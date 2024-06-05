@@ -10,10 +10,11 @@
 // +----------------------------------------------------------------------
 namespace Jenson\Upload\Service;
 
+use Jenson\Upload\Helper\DB;
 use Jenson\Upload\Helper\FileUtil;
 use Jenson\Upload\Helper\Helper;
-// HTTP类型
 
+// HTTP类型
 define('__MY_HTTP__', (
     (!empty($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) !== 'off')
     || (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https')
@@ -292,7 +293,7 @@ class ResourcesService
                 'error_msg'         => 'hash值有误',
             ],
         ];
-        $ret = ParamsChecked($params, $p);
+        $ret = Helper::ParamsChecked($params, $p);
         if($ret !== true)
         {
             return Helper::DataReturn($ret, -1);
@@ -311,7 +312,10 @@ class ResourcesService
             'add_time'      => time(),
         ];
         // 添加到数据库
-        $attachment_id = Db::name('Attachment')->insertGetId($data);
+        $DB = new DB();
+        $database = $DB->database;
+        $database->insert('attachment',$data);
+        $attachment_id = $database->id();
         if($attachment_id > 0)
         {
             $params['id'] = $attachment_id;
@@ -336,7 +340,10 @@ class ResourcesService
      */
     public static function AttachmentTotal($where)
     {
-        return (int) Db::name('Attachment')->where($where)->count();
+        $DB = new DB();
+        $database = $DB->database;
+        $count = $database->count('attachment',$where);
+        return (int) $count;
     }
 
     /**
@@ -383,14 +390,17 @@ class ResourcesService
                 'error_msg'         => '操作id有误',
             ]
         ];
-        $ret = ParamsChecked($params, $p);
+        $ret = Helper::ParamsChecked($params, $p);
         if($ret !== true)
         {
             return Helper::DataReturn($ret, -1);
         }
 
-        // 获取数据 todo:优化
-        $data = Db::name('Attachment')->find(intval($params['id']));
+        // 获取数据
+        $DB = new DB();
+        $database = $DB->database;
+        $data = $database->get('attachment','','',['id'=>$params['id']]);
+//        $data = Db::name('Attachment')->find(intval($params['id']));
         if(empty($data))
         {
             return Helper::DataReturn('数据不存在或已删除', -1);
@@ -402,7 +412,7 @@ class ResourcesService
         {
             if(is_writable($path))
             {
-                if(DB::name('Attachment')->where(['id'=>$data['id']])->delete())
+                if($database->delete('attachment',['id'=>$data['id']]))
                 {
                     // 删除附件
                     FileUtil::UnlinkFile($path);
@@ -415,7 +425,7 @@ class ResourcesService
                 $ret = Helper::DataReturn('没有删除权限', -1);
             }
         } else {
-            if(DB::name('Attachment')->where(['id'=>$data['id']])->delete())
+            if($database->delete('attachment',['id'=>$data['id']]))
             {
                 $ret = Helper::DataReturn('删除成功', 0);
             } else {
@@ -435,12 +445,15 @@ class ResourcesService
     {
         // 获取附件数据
         $where = ['path_type'=>$path_type];
+        $DB = new DB();
+        $database = $DB->database;
         # todo:优化
-        $data = DB::name('Attachment')->where($where)->select()->toArray();
+        $data = $database->select('attachment','','',$where);
+//        $data = DB::name('Attachment')->where($where)->select()->toArray();
         if(!empty($data))
         {
             // 删除数据库数据
-            if(!DB::name('Attachment')->where($where)->delete())
+            if(!$database->delete('attachment',$where))
             {
                 return Helper::DataReturn('删除失败', -1);
             }
@@ -493,9 +506,12 @@ class ResourcesService
             if(!empty($files))
             {
                 $count += count($files);
+                $DB = new DB();
+                $database = $DB->database;
                 foreach($files as $v)
                 {
-                    $temp = Db::name('Attachment')->where(['title'=>$v['title'], 'hash'=>$v['hash'], 'path_type'=>$path_type])->find();
+                    $temp = $database->get('attachment','','',['title'=>$v['title'], 'hash'=>$v['hash'], 'path_type'=>$path_type]);
+//                    $temp = Db::name('Attachment')->where(['title'=>$v['title'], 'hash'=>$v['hash'], 'path_type'=>$path_type])->find();
                     if(empty($temp))
                     {
                         $ret = self::AttachmentAdd($v);
@@ -621,13 +637,12 @@ class ResourcesService
     public static function CurrencyData()
     {
         // 默认从配置文件读取货币信息
-        $data = [
-            'currency_symbol'   => '',//MyConfig('shopxo.currency_symbol'),
-            'currency_code'     => '',//MyConfig('shopxo.currency_code'),
-            'currency_rate'     => '',//MyConfig('shopxo.currency_rate'),
-            'currency_name'     => '',//MyConfig('shopxo.currency_name'),
+        return [
+            'currency_symbol'   => getenv('currency_symbol'),
+            'currency_code'     => getenv('currency_code'),
+            'currency_rate'     => getenv('currency_rate'),
+            'currency_name'     => getenv('currency_name'),
         ];
-        return $data;
     }
 
     /**
@@ -640,7 +655,7 @@ class ResourcesService
     public static function CurrencyDataSymbol()
     {
         $res = self::CurrencyData();
-        return empty($res['currency_symbol']) ? MyConfig('shopxo.currency_symbol') : $res['currency_symbol'];
+        return empty($res['currency_symbol']) ? getenv('currency_symbol') : $res['currency_symbol'];
     }
 
     /**
@@ -661,7 +676,7 @@ class ResourcesService
 
     public static function AttachmentHost()
     {
-        return 'attachment_host';
+        return getenv('ATTACHMENT_HOST');
     }
 
     /**
