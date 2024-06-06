@@ -356,8 +356,15 @@ class ResourcesService
     {
         $m = max(0, isset($params['m']) ? intval($params['m']) : 0);
         $n = max(1, isset($params['n']) ? intval($params['n']) : 20);
-        #todo:优化
-        $data = array();//Db::name('Attachment')->where($params['where'])->order('id desc')->limit($m, $n)->select()->toArray();
+        //Db::name('Attachment')->where($params['where'])->order('id desc')->limit($m, $n)->select()->toArray();
+        $DB = new DB();
+        $database = $DB->database;
+        $where = $params['where'];
+        $where[] = [
+            'id' => 'ASC',
+            'ç'=>[$m,$n]
+        ];
+        $data = $database->select('attachment',[],$where);
         if(!empty($data))
         {
             foreach($data as &$v)
@@ -447,8 +454,7 @@ class ResourcesService
         $where = ['path_type'=>$path_type];
         $DB = new DB();
         $database = $DB->database;
-        # todo:优化
-        $data = $database->select('attachment','','',$where);
+        $data = $database->select('attachment',[],$where);
 //        $data = DB::name('Attachment')->where($where)->select()->toArray();
         if(!empty($data))
         {
