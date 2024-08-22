@@ -1,6 +1,8 @@
 <?php
 namespace Jenson\Upload;
 
+use Jenson\Upload\Helper\Helper;
+
 /**
  * Created by JetBrains PhpStorm.
  * User: Jenson
@@ -447,7 +449,7 @@ class Uploader
     private function getFilePath()
     {
         $fullname = $this->fullName;
-        $rootPath = GetDocumentRoot();
+        $rootPath = Helper::GetDocumentRoot();
 
         if (substr($fullname, 0, 1) != '/') {
             $fullname = '/' . $fullname;

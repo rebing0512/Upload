@@ -296,5 +296,33 @@ class Helper
         }
         return true;
     }
+    public static function GetDocumentRoot()
+    {
+        // 当前所在的文档根目录
+        if(!empty($_SERVER['DOCUMENT_ROOT']))
+        {
+            return $_SERVER['DOCUMENT_ROOT'];
+        }
+
+        // 处理iis服务器DOCUMENT_ROOT路径为空
+        if(!empty($_SERVER['PHP_SELF']))
+        {
+            // 当前执行程序的绝对路径及文件名
+            if(!empty($_SERVER['SCRIPT_FILENAME']))
+            {
+                return str_replace('\\', '/', substr($_SERVER['SCRIPT_FILENAME'], 0, 0 -strlen($_SERVER['PHP_SELF'])));
+            }
+
+            // 当前所在绝对路径
+            if(!empty($_SERVER['PATH_TRANSLATED']))
+            {
+                return str_replace('\\', '/', substr(str_replace('\\\\', '\\', $_SERVER['PATH_TRANSLATED']), 0, 0 -strlen($_SERVER['PHP_SELF'])));
+            }
+        }
+
+        // 服务器root没有获取到默认使用系统root_path
+        return (substr(ROOT_PATH, -1) == '/') ? substr(ROOT_PATH, 0, -1) : ROOT_PATH;
+    }
+
 }
 
