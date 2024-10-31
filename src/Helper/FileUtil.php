@@ -1,12 +1,12 @@
 <?php
 // +----------------------------------------------------------------------
-// | ShopXO 国内领先企业级B2C免费开源电商系统
+// | Jenson Base
 // +----------------------------------------------------------------------
-// | Copyright (c) 2011~2099 http://shopxo.net All rights reserved.
+// | Copyright (c) 2011~2099 http://jenson.net All rights reserved.
 // +----------------------------------------------------------------------
 // | Licensed ( https://opensource.org/licenses/mit-license.php )
 // +----------------------------------------------------------------------
-// | Author: Devil
+// | Author: Jenson
 // +----------------------------------------------------------------------
 namespace Jenson\Upload\Helper;
 
@@ -25,8 +25,8 @@ namespace Jenson\Upload\Helper;
 
 /**
  * 操纵文件类
- * @author   Devil
- * @blog    http://gong.gg/
+ * @author   Jenson
+ * @blog    http://jenson.gg/
  * @version 1.0.0
  * @date    2018-06-28
  * @desc    支持所有文件存储到硬盘
@@ -35,8 +35,8 @@ class FileUtil
 {
     /**
      * 建立文件夹
-     * @author   Devil
-     * @blog    http://gong.gg/
+     * @author   Jenson
+     * @blog    http://jenson.gg/
      * @version 1.0.0
      * @date    2018-06-29
      * @desc    description
@@ -66,8 +66,8 @@ class FileUtil
 
     /**
      * 建立文件
-     * @author   Devil
-     * @blog    http://gong.gg/
+     * @author   Jenson
+     * @blog    http://jenson.gg/
      * @version 1.0.0
      * @date    2018-06-29
      * @desc    description
@@ -92,8 +92,8 @@ class FileUtil
 
     /**
      * 移动文件夹
-     * @author   Devil
-     * @blog    http://gong.gg/
+     * @author   Jenson
+     * @blog    http://jenson.gg/
      * @version 1.0.0
      * @date    2018-06-29
      * @desc    description
@@ -140,8 +140,8 @@ class FileUtil
 
     /**
      * 移动文件
-     * @author   Devil
-     * @blog    http://gong.gg/
+     * @author   Jenson
+     * @blog    http://jenson.gg/
      * @version 1.0.0
      * @date    2018-06-29
      * @desc    description
@@ -171,8 +171,8 @@ class FileUtil
 
     /**
      * 删除文件夹
-     * @author   Devil
-     * @blog    http://gong.gg/
+     * @author   Jenson
+     * @blog    http://jenson.gg/
      * @version 1.0.0
      * @date    2018-06-29
      * @desc    description
@@ -208,8 +208,8 @@ class FileUtil
 
     /**
      * 删除文件
-     * @author   Devil
-     * @blog    http://gong.gg/
+     * @author   Jenson
+     * @blog    http://jenson.gg/
      * @version 1.0.0
      * @date    2018-06-29
      * @desc    description
@@ -230,8 +230,8 @@ class FileUtil
 
     /**
      * 复制文件夹
-     * @author   Devil
-     * @blog    http://gong.gg/
+     * @author   Jenson
+     * @blog    http://jenson.gg/
      * @version 1.0.0
      * @date    2018-06-29
      * @desc    description
@@ -274,8 +274,8 @@ class FileUtil
 
     /**
      * 复制文件
-     * @author   Devil
-     * @blog    http://gong.gg/
+     * @author   Jenson
+     * @blog    http://jenson.gg/
      * @version 1.0.0
      * @date    2018-06-29
      * @desc    description
@@ -305,8 +305,8 @@ class FileUtil
 
     /**
      * 文件下载
-     * @author   Devil
-     * @blog    http://gong.gg/
+     * @author   Jenson
+     * @blog    http://jenson.gg/
      * @version 1.0.0
      * @date    2019-03-25
      * @desc    description

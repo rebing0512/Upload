@@ -93,8 +93,8 @@ class Uploader
 
     /**
      * 文件上传
-     * @author   Devil
-     * @blog    http://gong.gg/
+     * @author   Jenson
+     * @blog    http://jenson.gg/
      * @version 1.0.0
      * @date    2019-02-26
      * @desc    description
@@ -162,8 +162,8 @@ class Uploader
 
     /**
      * 图片上传
-     * @author   Devil
-     * @blog    http://gong.gg/
+     * @author   Jenson
+     * @blog    http://jenson.gg/
      * @version 1.0.0
      * @date    2019-02-26
      * @desc    description
@@ -247,8 +247,8 @@ class Uploader
 
     /**
      * 处理base64编码的图片上传
-     * @author   Devil
-     * @blog    http://gong.gg/
+     * @author   Jenson
+     * @blog    http://jenson.gg/
      * @version 1.0.0
      * @date    2019-02-26
      * @desc    description
@@ -291,8 +291,8 @@ class Uploader
 
     /**
      * 拉取远程图片
-     * @author   Devil
-     * @blog    http://gong.gg/
+     * @author   Jenson
+     * @blog    http://jenson.gg/
      * @version 1.0.0
      * @date    2019-02-26
      * @desc    description

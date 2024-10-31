@@ -19,8 +19,8 @@ class Helper
 
     /**
      * 路径解析指定参数
-     * @author  Devil
-     * @blog    http://gong.gg/
+     * @author  Jenson
+     * @blog    http://jenson.gg/
      * @version 1.0.0
      * @date    2019-08-06
      * @desc    description

@@ -1,8 +1,8 @@
 <?php
 // +----------------------------------------------------------------------
-// | ShopXO 国内领先企业级B2C免费开源电商系统
+// | Jenson Base
 // +----------------------------------------------------------------------
-// | Copyright (c) 2011~2099 http://shopxo.net All rights reserved.
+// | Copyright (c) 2011~2099 http://jenson.net All rights reserved.
 // +----------------------------------------------------------------------
 // | Licensed ( https://opensource.org/licenses/mit-license.php )
 // +----------------------------------------------------------------------
@@ -18,7 +18,7 @@ use Jenson\Upload\Uploader;
 /**
  * 百度编辑器附件服务层
  * @author   Jenson
- * @blog     http://gong.gg/
+ * @blog     http://jenson.gg/
  * @version  0.0.1
  * @datetime 2016-12-01T21:51:08+0800
  */
@@ -32,7 +32,7 @@ class UeditorService
     /**
      * 请求入口
      * @author  Jenson
-     * @blog    http://gong.gg/
+     * @blog    http://jenson.gg/
      * @version 1.0.0
      * @date    2019-08-06
      * @desc    description
@@ -91,7 +91,7 @@ class UeditorService
     /**
      * 文件删除
      * @author   Jenson
-     * @blog    http://gong.gg/
+     * @blog    http://jenson.gg/
      * @version 1.0.0
      * @date    2018-12-10
      * @desc    description
@@ -105,7 +105,7 @@ class UeditorService
     /**
      * [ActionUpload 上传配置]
      * @author   Jenson
-     * @blog     http://gong.gg/
+     * @blog     http://jenson.gg/
      * @version  0.0.1
      * @datetime 2017-01-17T22:45:06+0800
      */
@@ -190,7 +190,7 @@ class UeditorService
     /**
      * [ActionList 文件列表]
      * @author   Jenson
-     * @blog     http://gong.gg/
+     * @blog     http://jenson.gg/
      * @version  0.0.1
      * @datetime 2017-01-17T22:55:16+0800
      */
@@ -265,7 +265,7 @@ class UeditorService
     /**
      * [ActionCrawler 抓取远程文件]
      * @author   Jenson
-     * @blog     http://gong.gg/
+     * @blog     http://jenson.gg/
      * @version  0.0.1
      * @datetime 2017-01-17T23:08:29+0800
      */

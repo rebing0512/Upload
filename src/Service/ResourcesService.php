@@ -1,12 +1,12 @@
 <?php
 // +----------------------------------------------------------------------
-// | ShopXO 国内领先企业级B2C免费开源电商系统
+// | Jenson Base
 // +----------------------------------------------------------------------
-// | Copyright (c) 2011~2099 http://shopxo.net All rights reserved.
+// | Copyright (c) 2011~2099 http://jenson.net All rights reserved.
 // +----------------------------------------------------------------------
 // | Licensed ( https://opensource.org/licenses/mit-license.php )
 // +----------------------------------------------------------------------
-// | Author: Devil
+// | Author: Jenson
 // +----------------------------------------------------------------------
 namespace Jenson\Upload\Service;
 
@@ -53,8 +53,8 @@ define('ROOT_PATH', str_replace('\\', DS, dirname(__FILE__)).DS);
 define('ROOT', substr(ROOT_PATH, 0, -7));
 /**
  * 资源服务层
- * @author   Devil
- * @blog     http://gong.gg/
+ * @author   Jenson
+ * @blog     http://jenson.gg/
  * @version  0.0.1
  * @datetime 2016-12-01T21:51:08+0800
  */
@@ -62,8 +62,8 @@ class ResourcesService
 {
     /**
      * 编辑器中内容的静态资源替换
-     * @author   Devil
-     * @blog     http://gong.gg/
+     * @author   Jenson
+     * @blog     http://jenson.gg/
      * @version  0.0.1
      * @datetime 2017-01-22T16:07:58+0800
      * @param    [string]    $content [在这个字符串中查找进行替换]
@@ -687,8 +687,8 @@ class ResourcesService
 
     /**
      * 获取当前系统所在根路径
-     * @author   Devil
-     * @blog    http://gong.gg/
+     * @author   Jenson
+     * @blog    http://jenson.gg/
      * @version 1.0.0
      * @date    2019-04-09
      * @desc    description
